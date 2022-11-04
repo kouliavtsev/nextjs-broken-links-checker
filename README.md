@@ -1,4 +1,4 @@
-# Contentlayer Example
+# Nextjs broken links checker
 
 This example shows how to integrate Contentlayer in Next.js. Learn more about [Contentlayer](https://www.contentlayer.dev/docs).
 
