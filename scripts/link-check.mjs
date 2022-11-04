@@ -22,6 +22,8 @@ markdownLinkCheck(allBody, configOpts, function (error, linkCheckresults) {
     const results = linkCheckresults.map((linkCheckResult) => ({ ...linkCheckResult }));  
     const hasDeadLink = results.find((result) => result.status.includes("dead"));
 
+    console.log(results);
+
     results.forEach(({ link, status}) => {
       console.log("%s is %s", link, status === "dead" ? "dead 💀" : "alive 🥳");
     });
