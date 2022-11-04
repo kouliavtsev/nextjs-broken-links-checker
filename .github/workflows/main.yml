@@ -1,0 +1,21 @@
+on: [push]
+name: CI
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 30
+      - name: Get Vercel preview URL
+        uses: zentered/vercel-preview-url@v1.0.0
+        id: vercel_preview_url
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        with:
+          vercel_team_id: 'team_Jux2WY3J1UJKmJ44Mu5RJrSm'
+          vercel_project_id: 'prj_R6uWry7oEVIUUz9hzGEzRJOyeh8a'
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: yarn
+      - name: Check broken links
+        run: yarn link:check --baseUrl=${{ steps.vercel_preview_url.outputs.preview_url }}
