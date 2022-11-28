@@ -12,8 +12,8 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         with:
-          vercel_team_id: 'team_Jux2WY3J1UJKmJ44Mu5RJrSm'
-          vercel_project_id: 'prj_R6uWry7oEVIUUz9hzGEzRJOyeh8a'
+          vercel_team_id: ${{ secrets.VERCEL_TEAM_ID }}
+          vercel_project_id: ${{ secrets.VERCEL_PROJECT_ID }}
       - uses: actions/checkout@v2
       - name: Install modules
         run: yarn
